@@ -1,0 +1,119 @@
+<!-- <div class="create-employer-profile-container">
+    <h2>Create Employer Profile</h2>
+    
+    Company Information Form
+    <form (ngSubmit)="createCompany()">
+      <div class="form-group">
+        <label for="companyName">Company Name</label>
+        <input
+          type="text"
+          id="companyName"
+          [(ngModel)]="company.companyName"
+          name="companyName"
+          class="form-control"
+          required
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input
+          type="text"
+          id="address"
+          [(ngModel)]="company.address"
+          name="address"
+          class="form-control"
+          required
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea
+          id="description"
+          [(ngModel)]="company.description"
+          name="description"
+          class="form-control"
+          required
+        ></textarea>
+      </div>
+  
+      <div class="form-group">
+        <label for="website">Website</label>
+        <input
+          type="url"
+          id="website"
+          [(ngModel)]="company.website"
+          name="website"
+          class="form-control"
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="companyId">Company ID (for checking existing company)</label>
+        <input
+          type="number"
+          id="companyId"
+          [(ngModel)]="company.companyId"
+          name="companyId"
+          class="form-control"
+          placeholder="Enter Company ID to check for existing company"
+        />
+      </div>
+  
+      <button type="submit" class="btn btn-primary" [disabled]="!company.companyName || !company.address || !company.description">
+        Create Employer Profile
+      </button>
+    </form>
+  </div>
+   -->
+
+
+
+
+
+
+   <div class="create-employer-profile">
+    <h2>Create Employer Profile</h2>
+  
+    <form (ngSubmit)="onSubmit()">
+      <!-- Company Dropdown -->
+      <label for="company">Select Company:</label>
+      <select [(ngModel)]="selectedCompany" name="company" id="company">
+        <option *ngFor="let company of companies" [value]="company.companyId">
+          {{ company.companyName }}
+        </option>
+      </select>
+  
+      <!-- Always show "Create New Company" button -->
+      <button type="button" (click)="showCreateCompanyForm = true">
+        Create New Company
+      </button>
+  
+      <!-- Create Company Form -->
+       <div *ngIf="showCreateCompanyForm">
+        <label for="companyName">Company Name:</label>
+        <input type="text" [(ngModel)]="newCompany.companyName" name="companyName" required />
+  
+        <label for="companyAddress">Address:</label>
+        <input type="text" [(ngModel)]="newCompany.address" name="companyAddress" required />
+  
+        <label for="companyDescription">Description:</label>
+        <input type="text" [(ngModel)]="newCompany.description" name="companyDescription" required />
+  
+        <label for="companyWebsite">Website:</label>
+        <input type="text" [(ngModel)]="newCompany.website" name="companyWebsite" required />
+  
+        <button type="button" (click)="createCompany()">Submit</button>
+      </div>
+  
+      <button type="submit">Submit Employer Profile</button>
+    </form>
+  </div>
+ 
+
+
+
+
+
+

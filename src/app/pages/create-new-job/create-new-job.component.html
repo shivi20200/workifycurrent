@@ -1,0 +1,39 @@
+<div class="form-container">
+    <h2>Create Job</h2>
+    <form (ngSubmit)="createJob()">
+      <div>
+        <label for="title">Job Title:</label>
+        <input id="title" [(ngModel)]="job.title" required />
+      </div>
+      <div>
+        <label for="description">Job Description:</label>
+        <textarea id="description" [(ngModel)]="job.description" required></textarea>
+      </div>
+      <div>
+        <label for="qualifications">Qualifications:</label>
+        <input id="qualifications" [(ngModel)]="job.qualifications" required />
+      </div>
+      <div>
+        <label for="salary">Salary:</label>
+        <input id="salary" type="number" [(ngModel)]="job.salary" required />
+      </div>
+      <div>
+        <label for="jobType">Job Type:</label>
+        <input id="jobType" [(ngModel)]="job.jobType" required />
+      </div>
+      <div>
+        <label for="requiredSkills">Required Skills:</label>
+        <input id="requiredSkills" [(ngModel)]="job.requiredSkills" required />
+      </div>
+      <div>
+        <label for="location">Location:</label>
+        <input id="location" [(ngModel)]="job.location" required />
+      </div>
+      <div>
+        <label for="industry">Industry:</label>
+        <input id="industry" [(ngModel)]="job.industry" required />
+      </div>
+      <button type="submit">Create Job</button>
+    </form>
+  </div>
+  

@@ -1,0 +1,69 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Workify</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink=""  routerLinkActive="active">Home</a>
+          </li>
+    
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/app-login"  routerLinkActive="active">Login</a>
+          </li>
+  
+        </ul>
+      </div> -->
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" routerLink="/jobs">Jobs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Companies</a>
+            </li>
+            <!-- visible only if user is logged in and is an employer --> 
+            <li class="nav-item" *ngIf="isLoggedIn && isEmployer">
+              <a class="nav-link" routerLink="/new-job">Create New Job</a>
+            </li>
+            
+
+            <li class="nav-item" *ngIf="isLoggedIn && isEmployer">
+              <a class="nav-link" routerLink="/new-job">Add Profile</a>
+            </li>
+            <!-- <li class="nav-item" *ngIf="userInfo?.userRole == 'Employer'">
+              <a class="nav-link" routerLink="/job-listing">Job Listing</a>
+          </li> -->
+        </ul>
+        <form class="d-flex">
+          <!-- Show Login and Register buttons if the user is not logged in -->
+          <button   *ngIf="!isLoggedIn" routerLink="/login" class="btn btn-success round-button mx-2" type="button">
+            Login
+          </button>
+          <button *ngIf="!isLoggedIn" routerLink="/register" class="btn btn-success round-button" type="button">
+            Register
+          </button>
+        
+          <!-- Show user details and LogOff button if the user is logged in --> -->
+          <button *ngIf="isLoggedIn" class="btn btn-link text-white" type="button">
+            Logged in User
+          </button>
+          <button *ngIf="isLoggedIn" (click)="logoff()" class="btn btn-success round-button" type="button">
+            LogOff
+          </button>
+
+        </form>
+        
+    </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid body-background">
+    <router-outlet></router-outlet>
+  </div>
+  
+  <!-- *ngIf="!isLoggedIn" -->
